@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     margin: 'auto',
-    wordBreak: 'break-all',
+    wordBreak: 'break-word',
   },
   image: {
     // width: 128,
@@ -52,8 +52,19 @@ const useStyles = makeStyles((theme) => ({
 const VideoItem = (props) => {
   const classes = useStyles();
 
+  const onVideoClick = (event) => {
+    props.onVideoClick(props.video);
+  };
+
   return (
-    <Grid item lg={6} md={6} sm={12} className={classes.root}>
+    <Grid
+      item
+      lg={6}
+      md={6}
+      sm={12}
+      className={classes.root}
+      onClick={onVideoClick}
+    >
       <Paper className={classes.paper}>
         <Grid container spacing={2}>
           <Grid item>
